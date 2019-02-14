@@ -19,6 +19,6 @@
   <ion-input type="text" [(ngModel)]="contact.name"></ion-input>
   <ion-input type="text" [(ngModel)]="contact.lastName"></ion-input>
 
-  <ion-button [disabled]="disabledButton">Boton</ion-button>
+  <ion-button *ngIf="showButton" (click)="showAlert()" [disabled]="disabledButton">Boton</ion-button>
   <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
 </ion-content>
