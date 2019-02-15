@@ -17,18 +17,23 @@ export class HomePage {
   disabledButton: boolean = false;
   showButton: boolean = false;
 
+  ngOnInit() {
+    this.showAlert({name: "Juan", lastName: "Perez"});
+  }
+
   contact: Contact = {name: "Juan", lastName: "Perez"};
 
-  contacts: Contact[] = [{name: "Juan", lastName: "Perez"}, {name: "Pedro", lastName: "Ramirez"}]
+  contacts: Contact[] = [{name: "Juan", lastName: "Perez"}, 
+  {name: "Pedro", lastName: "Ramirez"},
+  {name: "Maria", lastName: "Peralez"}]
   constructor(public alertController: AlertController){
     
   }
 
-  async showAlert(){
+  async showAlert(contact: Contact){
     const alert = await this.alertController.create({
-      header: 'Alert',
-      subHeader: 'Subtitle',
-      message: 'This is an alert message.',
+      header: 'Contacto',
+      message: contact.name,
       buttons: ['OK']
     });
 

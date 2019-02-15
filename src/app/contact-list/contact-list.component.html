@@ -1,0 +1,8 @@
+<ion-list>
+    <ion-item *ngFor="let contact of contacts">
+      <ion-avatar slot="start">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAAAAAAALAAAAAABAAEAAAICTAEAOw==">
+      </ion-avatar>
+      <ion-label>{{contact.name}} {{contact.lastName}}</ion-label>
+    </ion-item>
+</ion-list>
