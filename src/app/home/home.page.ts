@@ -3,8 +3,6 @@ import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 
 
-
-
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',

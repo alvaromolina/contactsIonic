@@ -1,5 +1,5 @@
 <ion-list>
-    <ion-item *ngFor="let contact of contacts">
+    <ion-item [routerLink]="['/chat', contact.name]" *ngFor="let contact of contacts">
       <ion-avatar slot="start">
           <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAAAAAAALAAAAAABAAEAAAICTAEAOw==">
       </ion-avatar>
