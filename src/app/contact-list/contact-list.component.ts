@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact-list',
@@ -9,9 +10,14 @@ export class ContactListComponent implements OnInit {
   
   @Input() contacts: Contact[];
 
-  constructor() { }
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  goToChat(name: string){
+    this.router.navigate(['/chat',name]);
   }
 
 }

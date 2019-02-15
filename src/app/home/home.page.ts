@@ -18,6 +18,8 @@ export class HomePage {
     public contactServiceService: ContactServiceService){
   }
 
+
+  
   ngOnInit() {
     this.showAlert({name: "Juan", lastName: "Perez"});
   }

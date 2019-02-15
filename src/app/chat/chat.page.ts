@@ -13,5 +13,6 @@ export class ChatPage implements OnInit {
   ngOnInit() {
     this.name = this.activatedRoute.snapshot.paramMap.get('name');
   }
+  
 
 }
