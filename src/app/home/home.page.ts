@@ -1,11 +1,9 @@
+import { ContactServiceService } from './../contact-service.service';
 import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 
 
-interface Contact{
-  name: string;
-  lastName: string;
-}
+
 
 @Component({
   selector: 'app-home',
@@ -16,20 +14,20 @@ export class HomePage {
   titulo: string = 'Hello';
   disabledButton: boolean = false;
   showButton: boolean = false;
+  contact: Contact = {name: "Juan", lastName: "Perez"};
+
+  constructor(public alertController: AlertController,
+    public contactServiceService: ContactServiceService){
+  }
 
   ngOnInit() {
     this.showAlert({name: "Juan", lastName: "Perez"});
   }
 
-  contact: Contact = {name: "Juan", lastName: "Perez"};
-
-  contacts: Contact[] = [{name: "Juan", lastName: "Perez"}, 
-  {name: "Pedro", lastName: "Ramirez"},
-  {name: "Maria", lastName: "Peralez"}]
-  constructor(public alertController: AlertController){
-    
+  getContacts(){
+    console.log(this.contactServiceService.getContacts());
+    return this.contactServiceService.getContacts();
   }
-
   async showAlert(contact: Contact){
     const alert = await this.alertController.create({
       header: 'Contacto',
