@@ -75,3 +75,29 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 }
+
+  /** favourite **/
+.ios {
+  .ion-color-favourite{
+  --ion-color-base: #ffce00;
+  --ion-color-rgb: 255, 206, 0;
+  --ion-color-contrast: #ffffff;
+  --ion-color-contrast-rgb: 255, 255, 255;
+  --ion-color-shade: #e0b500;
+  --ion-color-tint: #ffd31a;
+  }
+}
+.md {
+  .ion-color-favourite{
+  --ion-color-base: #989aa2;
+  --ion-color-rgb: 255, 206, 0;
+  --ion-color-contrast: #ffffff;
+  --ion-color-contrast-rgb: 255, 255, 255;
+  --ion-color-shade: #989aa2;
+  --ion-color-tint: #989aa2;
+  }
+}
+.md .button {
+  text-transform: capitalize;
+}
+

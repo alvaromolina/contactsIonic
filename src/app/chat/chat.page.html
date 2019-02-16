@@ -5,13 +5,18 @@
           </ion-back-button> 	
       </ion-buttons> 
     <ion-avatar slot="start">
-          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAAAAAAALAAAAAABAAEAAAICTAEAOw==">
+          <img src="{{contact.avatar}}">
     </ion-avatar>
-    <ion-title>{{name}}</ion-title>
+    <ion-title>{{contact.first_name}} {{contact.last_name}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-<ion-input></ion-input>
-<ion-button>Send</ion-button>
+
 </ion-content>
+<ion-footer>
+    <ion-item>
+      <ion-input></ion-input>
+      <ion-button><ion-icon name="send"></ion-icon></ion-button>
+    </ion-item>
+</ion-footer>

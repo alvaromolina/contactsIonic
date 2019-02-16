@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-contact-list',
@@ -16,8 +16,18 @@ export class ContactListComponent implements OnInit {
   ngOnInit() {
   }
 
-  goToChat(name: string){
-    this.router.navigate(['/chat',name]);
+  goToChat(contact: Contact){
+    let navigationExtras: NavigationExtras = {
+      queryParams: contact
+    };
+    this.router.navigate(['/home/contacts/chat'], navigationExtras);
+  }
+
+  goToProfile(contact: Contact){
+    let navigationExtras: NavigationExtras = {
+      queryParams: contact
+    };
+    this.router.navigate(['/home/contacts/profile'], navigationExtras);
   }
 
 }

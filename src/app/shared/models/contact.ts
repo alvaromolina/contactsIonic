@@ -1,4 +1,6 @@
 interface Contact{
-    name: string;
-    lastName: string;
+    id: number;
+    first_name: string;
+    last_name: string;
+    avatar: string;
 }

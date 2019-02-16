@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-chat',
-  templateUrl: './chat.page.html',
-  styleUrls: ['./chat.page.scss'],
+  selector: 'app-profile',
+  templateUrl: './profile.page.html',
+  styleUrls: ['./profile.page.scss'],
 })
-export class ChatPage implements OnInit {
+export class ProfilePage implements OnInit {
   contact: Contact;
   constructor(public activatedRoute: ActivatedRoute) { }
 
@@ -17,6 +17,5 @@ export class ChatPage implements OnInit {
       }
     );
   }
-  
 
 }
