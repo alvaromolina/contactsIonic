@@ -10,9 +10,7 @@ const url: string  = "https://reqres.in/api/users?per_page=10&delay=10";
   providedIn: 'root'
 })
 export class ContactServiceService {
-  contacts: Contact[] = [{first_name: "Juan", last_name: "Perez"}, 
-  {first_name: "Pedro", lastName: "Ramirez"},
-  {first_name: "Maria", lastName: "Peralez"}];
+  contacts: Contact[];
   constructor(public httpClient: HttpClient) { 
 
   }

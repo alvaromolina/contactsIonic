@@ -24,10 +24,9 @@ export class ContactsPage implements OnInit {
       message: 'Loading'
     });
     await loading.present();
-
     this.contactServiceService.getContactsHttp().subscribe(
       data => {
-        this.contacts = data.data;
+        //this.contacts = <Contact[]> data.data;
         loading.dismiss();
     }, 
     error => {
@@ -50,7 +49,7 @@ export class ContactsPage implements OnInit {
   async showAlert(contact: Contact){
     const alert = await this.alertController.create({
       header: 'Contacto',
-      message: contact.name,
+      message: contact.first_name,
       buttons: ['OK']
     });
 
