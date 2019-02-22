@@ -13,17 +13,16 @@ import { Router } from '@angular/router';
 export class HomePage {
   constructor(public auth: AuthService, 
     public router: Router){
+      this.auth.afAuth.authState.subscribe(user => {
+        console.log(user);
+        if(user){
+  
+        }else{
+          this.router.navigate(['/login']);
+        }
+      })
 
   }
-  ngOnInit() {
-    this.auth.afAuth.authState.subscribe(user => {
-      if(user){
 
-      }else{
-        this.router.navigate(['/login']);
-      }
-    })
-    
-  }
   
 }
