@@ -26,7 +26,7 @@ export class ContactsPage implements OnInit {
     await loading.present();
     this.contactServiceService.getContactsHttp().subscribe(
       data => {
-        //this.contacts = <Contact[]> data.data;
+        this.contacts = (data as any).data;
         loading.dismiss();
     }, 
     error => {
