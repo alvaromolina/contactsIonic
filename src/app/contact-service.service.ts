@@ -4,7 +4,7 @@ import { throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators/';
 
 
-const url: string  = "https://reqres.in/api/users?per_page=10&delay=10";
+const url: string  = "https://reqres.in/api/users?per_page=10";
 
 @Injectable({
   providedIn: 'root'

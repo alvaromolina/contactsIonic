@@ -1,4 +1,4 @@
-import { AlertController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -16,7 +16,7 @@ export class LoginPage implements OnInit {
 
   constructor(public auth: AuthService, 
     private router: Router,
-    private alertController: AlertController) { }
+    private toastController: ToastController) { }
 
   ngOnInit() {
   }
@@ -25,22 +25,21 @@ export class LoginPage implements OnInit {
   password: string;
 
 
-
+  async presentToast(message) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 2000
+    });
+    toast.present();
+  }
+  
   public login(){
-
     this.auth.signInWithEmail({email: this.email, password: this.password}).then(user => {
         if(user){
           this.router.navigate(['/home']);
-        }else{
-            console.log(user);
-            const alert = this.alertController.create({
-              header: 'Error',
-              message: "Error al login",
-              buttons: ['OK']
-            });
-            alert.then(()=>{});
-        
         }
+    }).catch(error => {
+      this.presentToast(error.message).then(value => {})
     })
 
   }

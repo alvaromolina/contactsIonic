@@ -1,3 +1,4 @@
+import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { ContactServiceService } from '../contact-service.service';
@@ -13,9 +14,15 @@ export class ContactsPage implements OnInit {
 
   constructor(public alertController: AlertController,
     public contactServiceService: ContactServiceService,
-    public loadingController: LoadingController){
+    public loadingController: LoadingController,
+    public auth: AuthService){
+      this.auth.afAuth.authState.subscribe(user => {
+        console.log(user);
+        if(user){
+          this.getContacts();
+        }
+      })
 
-      this.getContacts();
   }
 
 
@@ -24,7 +31,8 @@ export class ContactsPage implements OnInit {
       message: 'Loading'
     });
     await loading.present();
-    this.contactServiceService.getContactsHttp().subscribe(
+    this.contactServiceService.getContactsHttp()
+    .subscribe(
       data => {
         this.contacts = (data as any).data;
         loading.dismiss();
@@ -32,7 +40,9 @@ export class ContactsPage implements OnInit {
     error => {
       console.log(error);
       loading.dismiss();
-
+    },
+    () => {
+      loading.dismiss();
     }
     )
   }
@@ -40,7 +50,6 @@ export class ContactsPage implements OnInit {
 
   
   ngOnInit() {
-
 
   }
 

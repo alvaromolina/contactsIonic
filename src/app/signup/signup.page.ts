@@ -1,5 +1,7 @@
+import { ToastController } from '@ionic/angular';
 import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -12,18 +14,28 @@ export class SignupPage implements OnInit {
   password: string;
   password_repeat: string;
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, private toastController: ToastController,
+    private router: Router) { }
 
   ngOnInit() {
   }
 
-  register(){
+  async presentToast(message) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 2000
+    });
+    toast.present();
+  }
 
+  register(){
     this.auth.signUp({email: this.email, password: this.password}).then(
       user => {
-        console.log(user);
+        this.router.navigate(['/home'])
       }
-    );
+    ).catch(error => {
+      this.presentToast(error.message).then(value => {})
+    });
 
   }
 }
