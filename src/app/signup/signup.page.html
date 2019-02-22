@@ -9,11 +9,11 @@
   </ion-header>
   
   <ion-content padding>
-    <ion-input placeholder="Email"></ion-input>
-    <ion-input placeholder="Password" type="password"></ion-input>
-    <ion-input placeholder="Repeat Password" type="password"></ion-input>
+    <ion-input placeholder="Email" [(ngModel)]="email" ></ion-input>
+    <ion-input placeholder="Password" type="password" [(ngModel)]="password" ></ion-input>
+    <ion-input placeholder="Repeat Password" type="password" [(ngModel)]="password_repeat"></ion-input>
 
-    <ion-button expand="full">Register</ion-button>
+    <ion-button expand="full" (click)="register()">Register</ion-button>
   
   </ion-content>
   
