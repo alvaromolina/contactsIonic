@@ -17,7 +17,9 @@ export class ContactServiceService {
   contacts: AngularFireList<Contact> = null;
   userId: string;
 
-  constructor(public httpClient: HttpClient, private db: AngularFireDatabase, private afAuth: AngularFireAuth) {
+  constructor(public httpClient: HttpClient, 
+    private db: AngularFireDatabase, 
+    private afAuth: AngularFireAuth) {
     this.afAuth.authState.subscribe(user => {
       if(user) this.userId = user.uid
     })
@@ -41,11 +43,11 @@ export class ContactServiceService {
   
   public getContactsList(): AngularFireList<Contact> {
     if (!this.userId) return;
-    this.contacts = this.db.list(`contacts/${this.userId}`);
+    this.contacts = this.db.list('contacts/'+this.userId);
     return this.contacts
   }
   createContact(contact: Contact) {
-    this.contacts.push(contact);
+    return this.contacts.push(contact);
   }
 
     

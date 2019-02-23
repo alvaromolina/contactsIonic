@@ -8,7 +8,7 @@
 
 <ion-content>
   <app-contact-list [contacts]="contacts"></app-contact-list>
-  <ion-fab  vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab (click)="goToAddContact()"   vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button>
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>

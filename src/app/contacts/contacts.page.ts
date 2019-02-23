@@ -3,6 +3,7 @@ import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { ContactServiceService } from '../contact-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contacts',
@@ -17,7 +18,8 @@ export class ContactsPage implements OnInit {
   constructor(public alertController: AlertController,
     public contactServiceService: ContactServiceService,
     public loadingController: LoadingController,
-    public auth: AuthService){
+    public auth: AuthService,
+    public router: Router){
       this.auth.afAuth.authState.subscribe(user => {
         console.log(user);
         if(user){
@@ -40,7 +42,9 @@ export class ContactsPage implements OnInit {
 
   }
 
-
+  goToAddContact(){
+    this.router.navigate(['/home/contacts/add'])
+  }
   
   async showAlert(contact: Contact){
     const alert = await this.alertController.create({
