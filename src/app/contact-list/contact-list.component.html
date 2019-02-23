@@ -1,5 +1,5 @@
 <ion-list>
-    <ion-item  *ngFor="let contact of contacts" lines="full" detail>
+    <ion-item  *ngFor="let contact of contactsList | async" lines="full" detail>
       <ion-avatar slot="start" (click)="goToProfile(contact)">
           <img src="{{contact.avatar}}">
       </ion-avatar>

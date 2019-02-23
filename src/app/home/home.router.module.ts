@@ -19,6 +19,10 @@ const routes: Routes = [
             loadChildren: '../chat/chat.module#ChatPageModule'
           },
           {
+            path: 'add',
+            loadChildren: '../add-contact/add-contact.module#AddContactPageModule'
+          },
+          {
             path: 'profile',
             loadChildren: '../profile/profile.module#ProfilePageModule'
           }
