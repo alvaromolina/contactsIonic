@@ -7,5 +7,15 @@
 <ion-content padding>
 
   <ion-input placeholder="Estado" [(ngModel)]="status"></ion-input>
+  <ion-thumbnail>
+      <img src="{{image}}">
+    </ion-thumbnail>
+  <ion-label>{{lt}}</ion-label>
+  <ion-label>{{lg}}</ion-label>
+
+  <ion-button (click)="takePhoto()" expand="full"><ion-icon name="camera"></ion-icon></ion-button>
+
   <ion-button (click)="addStatus()"  expand="full">Añadir</ion-button>
+  <div id="map_canvas">
+    </div>
 </ion-content>
