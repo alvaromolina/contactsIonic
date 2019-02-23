@@ -5,7 +5,12 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-fab (click)="goToAddContact()"   vertical="bottom" horizontal="end" slot="fixed">
+
+  <ion-item *ngFor="let status of listStatus | async" >
+    <ion-label>{{status.status}}</ion-label>
+  </ion-item>
+
+  <ion-fab (click)="goToAddStatus()"   vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button>
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>

@@ -34,7 +34,11 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: '../status/status.module#StatusPageModule'
-          }
+          },
+          {
+            path: 'add',
+            loadChildren: '../add-status/add-status.module#AddStatusPageModule'
+          },
         ]
       },
       {

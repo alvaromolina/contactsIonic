@@ -16,10 +16,12 @@ export class ContactListComponent implements OnInit {
 
 
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) { 
+  }
 
   ngOnInit() {
-      this.contactsList = this.contacts.valueChanges();
+    this.contactsList = this.contacts.valueChanges();
+
   }
 
   goToChat(contact: Contact){

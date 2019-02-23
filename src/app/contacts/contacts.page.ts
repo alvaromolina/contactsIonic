@@ -34,6 +34,7 @@ export class ContactsPage implements OnInit {
 
     this.contacts = this.contactServiceService.getContactsList();
     
+    
   }
 
 

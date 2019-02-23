@@ -1,5 +1,7 @@
+import { StatusService } from './../status.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-status',
@@ -7,10 +9,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./status.page.scss'],
 })
 export class StatusPage implements OnInit {
+  listStatus: Observable<Status[]>;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private statusService: StatusService) { 
+
+    this.listStatus = this.statusService.getStatusList().valueChanges();
+  }
 
   ngOnInit() {
+    
   }
 
   goToAddStatus(){

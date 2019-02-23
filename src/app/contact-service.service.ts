@@ -14,7 +14,7 @@ const url: string  = "https://reqres.in/api/users?per_page=10";
 })
 export class ContactServiceService {
 
-  contacts: AngularFireList<Contact> = null;
+  contacts: AngularFireList<Contact>;
   userId: string;
 
   constructor(public httpClient: HttpClient, 
@@ -42,7 +42,7 @@ export class ContactServiceService {
   };
   
   public getContactsList(): AngularFireList<Contact> {
-    if (!this.userId) return;
+    if (!this.userId) return this.contacts;
     this.contacts = this.db.list('contacts/'+this.userId);
     return this.contacts
   }
