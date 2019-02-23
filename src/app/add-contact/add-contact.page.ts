@@ -17,7 +17,6 @@ export class AddContactPage implements OnInit {
   }
 
   addContact(){
-    console.log('add')
     let contact: Contact = { first_name: this.first_name, 
       last_name: this.last_name,
       email: this.email,

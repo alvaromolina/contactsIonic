@@ -12,15 +12,14 @@ export class ContactListComponent implements OnInit {
   
   @Input() contacts: AngularFireList<Contact>;
 
-  contactsList: Observable<Contact[]>;
+  contactsList: Observable<Contact[]> = null;
 
 
 
   constructor(private router: Router) { }
 
   ngOnInit() {
-
-    this.contactsList = this.contacts.valueChanges();
+      this.contactsList = this.contacts.valueChanges();
   }
 
   goToChat(contact: Contact){

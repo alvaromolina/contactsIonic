@@ -3,5 +3,4 @@ interface Contact{
     last_name: string;
     email: string;
     avatar: string;
-
 }
