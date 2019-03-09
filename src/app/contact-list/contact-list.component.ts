@@ -2,6 +2,9 @@ import { AngularFireList } from '@angular/fire/database';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AuthService } from './../auth.service';
+import { ContactServiceService } from '../contact-service.service';
+
 
 @Component({
   selector: 'app-contact-list',
@@ -9,20 +12,32 @@ import { Observable } from 'rxjs';
   styleUrls: ['./contact-list.component.scss']
 })
 export class ContactListComponent implements OnInit {
-  
-  @Input() contacts: AngularFireList<Contact>;
+
 
   contactsList: Observable<Contact[]> = null;
 
-
-
-  constructor(private router: Router) { 
+  constructor(private router: Router, 
+    public auth: AuthService,
+    public contactServiceService: ContactServiceService) { 
+    this.auth.afAuth.authState.subscribe(user => {
+      console.log(user);
+      if(user){
+        this.getContacts();
+      }
+    })
   }
 
-  ngOnInit() {
-    this.contactsList = this.contacts.valueChanges();
-
+  ngOnInit(){
   }
+  
+
+  getContacts(){
+
+    this.contactsList = this.contactServiceService.getContactsList().valueChanges();
+    
+  }
+
+
 
   goToChat(contact: Contact){
     let navigationExtras: NavigationExtras = {

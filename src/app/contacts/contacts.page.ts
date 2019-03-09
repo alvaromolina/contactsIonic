@@ -12,30 +12,13 @@ import { Router } from '@angular/router';
 })
 export class ContactsPage implements OnInit {
 
-  contacts: AngularFireList<Contact>;
-
 
   constructor(public alertController: AlertController,
-    public contactServiceService: ContactServiceService,
     public loadingController: LoadingController,
-    public auth: AuthService,
     public router: Router){
-      this.auth.afAuth.authState.subscribe(user => {
-        console.log(user);
-        if(user){
-          this.getContacts();
-        }
-      })
 
   }
 
-
-  getContacts(){
-
-    this.contacts = this.contactServiceService.getContactsList();
-    
-    
-  }
 
 
   
